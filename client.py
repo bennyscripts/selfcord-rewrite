@@ -58,10 +58,10 @@ class Client:
 
     def run(self, token):
         loop = asyncio.get_event_loop()
-        loop.run_until_complete(self.run_(token))
+        loop.run_until_complete(self.connect(token))
         loop.close()
 
-    async def run_(self, token):
+    async def connect(self, token):
         self.token = token
         Wrapper.set_token(token)
         self.connect(self.token)
