@@ -39,7 +39,8 @@ class Client:
     def add_command(self, name, callback):
         for cmd in self.commands:
             if cmd["name"] == name:
-                raise exceptions.DuplicateCommandError("A command with the name '{}' already exists.".format(name))
+                raise exceptions.DuplicateCommandError(f"A command with the name '{name}' already exists.")
+
 
         self.commands.append({"name": name, "callback": callback})
         if self.debug: print("[DEBUG] Added command:", name)
