@@ -2,10 +2,7 @@ from ..types import guild as _guild
 from ..types import channel as _channel
 
 def guild(id, ready_data):
-    for guild_ in ready_data["d"]["guilds"]:
-        if guild_["id"] == id:
-            return _guild.Guild(guild_["id"], guild_["name"], guild_["description"], guild_["owner_id"], guild_["icon"], guild_["banner"], guild_["member_count"])
-    return None
+    return next((_guild.Guild(guild_["id"], guild_["name"], guild_["description"], guild_["owner_id"], guild_["icon"], guild_["banner"], guild_["member_count"]) for guild_ in ready_data["d"]["guilds"] if guild_["id"] == id), None)
 
 def channel(id, guild_id, ready_data):
     for guild_ in ready_data["d"]["guilds"]:
