@@ -111,9 +111,8 @@ class Client:
         if message.content.startswith(self.command_prefix):
             if self.debug: print("[DEBUG] Command:", message.content)
 
-            if self.self_bot:
-                if message.author.id != self.user.id:
-                    return
+            if self.self_bot and message.author.id != self.user.id:
+                return
 
             split = shlex.split(message.content)
             command = split[0][len(self.command_prefix):]
