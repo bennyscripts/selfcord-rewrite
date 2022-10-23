@@ -16,9 +16,7 @@ class Codeblock:
     def __str__(self):
         if self.description == "":
             return self.generate_title()
-        elif self.description != "" and self.footer == "":
-            return self.generate_title() + self.generate_description()
-        elif self.title == "" and self.footer == "":
+        elif self.footer == "":
             return self.generate_title() + self.generate_description()
         else:
             return self.generate_title() + self.generate_description() + self.generate_footer()
