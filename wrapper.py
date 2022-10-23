@@ -13,8 +13,8 @@ class Wrapper:
         global user_token
         return user_token
 
-    def send_request(method, url, headers={}, data={}):
-        return client.request(method, url, headers=headers, data=data)
+    def send_request(self, url, headers={}, data={}):
+        return client.request(self, url, headers=headers, data=data)
 
     def send_discord_request(method, endpoint, headers={}, data={}):
         global user_token
