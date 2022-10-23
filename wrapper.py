@@ -20,7 +20,11 @@ class Wrapper:
             data = {}
         return client.request(self, url, headers=headers, data=data)
 
-    def send_discord_request(self, endpoint, headers={}, data={}):
+    def send_discord_request(self, endpoint, headers=None, data=None):
+        if headers is None:
+            headers = {}
+        if data is None:
+            data = {}
         global user_token
 
         headers["Authorization"] = f"{user_token}"
