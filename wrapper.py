@@ -5,9 +5,9 @@ user_token = ""
 base_url = "https://discordapp.com/api/v9"
 
 class Wrapper:
-    def set_token(token):
+    def set_token(self):
         global user_token
-        user_token = token
+        user_token = self
 
     def get_token():
         global user_token
