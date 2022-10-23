@@ -4,4 +4,4 @@ class User:
         self.username = username
         self.discriminator = discriminator
         self.avatar = avatar
-        self.tag = username + "#" + discriminator
+        self.tag = f"{username}#{discriminator}"
