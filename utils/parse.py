@@ -16,11 +16,7 @@ def message(msg_data, ready_data):
     channel_id = data.get("channel_id", None)
     guild_id = data.get("guild_id", None)
 
-    if guild_id is not None:
-        guild = get_guild(guild_id, ready_data)
-    else:
-        guild = None
-
+    guild = get_guild(guild_id, ready_data) if guild_id is not None else None
     if channel_id is not None:
         channel = get_channel(channel_id, guild_id, ready_data)
     else:
