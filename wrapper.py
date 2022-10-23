@@ -13,7 +13,11 @@ class Wrapper:
         global user_token
         return user_token
 
-    def send_request(self, url, headers={}, data={}):
+    def send_request(self, url, headers=None, data=None):
+        if headers is None:
+            headers = {}
+        if data is None:
+            data = {}
         return client.request(self, url, headers=headers, data=data)
 
     def send_discord_request(method, endpoint, headers={}, data={}):
