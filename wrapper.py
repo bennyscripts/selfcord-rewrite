@@ -20,10 +20,10 @@ class Wrapper:
             data = {}
         return client.request(self, url, headers=headers, data=data)
 
-    def send_discord_request(method, endpoint, headers={}, data={}):
+    def send_discord_request(self, endpoint, headers={}, data={}):
         global user_token
 
         headers["Authorization"] = f"{user_token}"
         headers["Content-Type"] = "application/json"
-        
-        return client.request(method, base_url + endpoint, headers=headers, data=data)
+
+        return client.request(self, base_url + endpoint, headers=headers, data=data)
